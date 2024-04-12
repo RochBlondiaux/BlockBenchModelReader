@@ -6,5 +6,7 @@ public interface BlockBenchUv {
 
     String rawTexture();
 
+    int texture();
+
     boolean hasTexture();
 }

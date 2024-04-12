@@ -1,10 +1,11 @@
 package me.rochblondiaux.blockbench.texture;
 
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 import java.util.UUID;
 
 import org.jetbrains.annotations.Nullable;
+
+import team.unnamed.creative.base.Writable;
 
 public interface BlockbenchTexture {
 
@@ -51,6 +52,8 @@ public interface BlockbenchTexture {
     String relativePath();
 
     String source();
+
+    @Nullable Writable asWritable();
 
     @Nullable BufferedImage image();
 }

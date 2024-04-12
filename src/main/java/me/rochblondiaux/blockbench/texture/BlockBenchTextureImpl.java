@@ -5,7 +5,11 @@ import java.io.ByteArrayInputStream;
 import java.util.Base64;
 import java.util.UUID;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.google.gson.annotations.SerializedName;
+
+import team.unnamed.creative.base.Writable;
 
 public record BlockBenchTextureImpl(
         @SerializedName("uuid") UUID uniqueId,
@@ -31,6 +35,18 @@ public record BlockBenchTextureImpl(
         @SerializedName("relative_path") String relativePath,
         String source
 ) implements BlockbenchTexture {
+
+    @Override
+    public @Nullable Writable asWritable() {
+        if (source == null)
+            return null;
+
+        return Writable.inputStream(() -> {
+            String data = source.substring(source.indexOf(",") + 1);
+            byte[] imageContent = Base64.getDecoder().decode(data);
+            return new ByteArrayInputStream(imageContent);
+        });
+    }
 
     @Override
     public BufferedImage image() {
