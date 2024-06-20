@@ -30,5 +30,4 @@ public record BlockBenchModelImpl(
         List<BlockBenchTextureImpl> textures,
         Map<String, ItemTransformImpl> display
 ) implements BlockBenchModel {
-
 }

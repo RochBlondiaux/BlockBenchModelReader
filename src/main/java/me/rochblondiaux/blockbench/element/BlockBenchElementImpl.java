@@ -9,7 +9,7 @@ import me.rochblondiaux.blockbench.element.face.BlockBenchElementFace;
 import me.rochblondiaux.blockbench.element.uv.BlockBenchUv;
 import team.unnamed.creative.base.CubeFace;
 
-public record BlockBenchElementImpl(
+public record   BlockBenchElementImpl(
         @SerializedName("uuid") UUID uniqueId,
         String type,
         String name,

@@ -21,6 +21,8 @@ public interface BlockBenchModel {
 
     @Nullable String credit();
 
+    @Nullable String modelIdentifier();
+
     Metadata metadata();
 
     Resolution resolution();

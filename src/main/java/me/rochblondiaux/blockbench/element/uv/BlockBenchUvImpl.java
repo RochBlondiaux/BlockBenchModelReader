@@ -1,7 +1,9 @@
 package me.rochblondiaux.blockbench.element.uv;
 
+import com.google.gson.annotations.SerializedName;
+
 public record BlockBenchUvImpl(float[] uv,
-                               String rawTexture) implements BlockBenchUv {
+                               @SerializedName("texture") String rawTexture) implements BlockBenchUv {
 
     @Override
     public int texture() {
