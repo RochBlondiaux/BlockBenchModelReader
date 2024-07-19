@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import me.rochblondiaux.blockbench.element.BlockBenchElement;
 import me.rochblondiaux.blockbench.element.Resolution;
 import me.rochblondiaux.blockbench.model.metadata.Metadata;
+import me.rochblondiaux.blockbench.outliner.Outliner;
 import me.rochblondiaux.blockbench.texture.BlockbenchTexture;
 import team.unnamed.creative.model.ItemTransform;
 
@@ -17,11 +18,14 @@ public interface BlockBenchModel {
 
     String identifier();
 
-    @Nullable String parent();
+    @Nullable
+    String parent();
 
-    @Nullable String credit();
+    @Nullable
+    String credit();
 
-    @Nullable String modelIdentifier();
+    @Nullable
+    String modelIdentifier();
 
     Metadata metadata();
 
@@ -42,4 +46,6 @@ public interface BlockBenchModel {
     List<? extends BlockBenchElement> elements();
 
     Map<String, ? extends ItemTransform> display();
+
+    List<? extends Outliner> outliner();
 }
