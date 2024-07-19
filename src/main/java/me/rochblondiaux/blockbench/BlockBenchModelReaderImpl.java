@@ -9,13 +9,18 @@ import java.nio.file.Path;
 import org.jetbrains.annotations.NotNull;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import me.rochblondiaux.blockbench.adapters.OutlinerGsonAdapter;
 import me.rochblondiaux.blockbench.model.BlockBenchModel;
 import me.rochblondiaux.blockbench.model.BlockBenchModelImpl;
+import me.rochblondiaux.blockbench.outliner.OutlinerImpl;
 
 public class BlockBenchModelReaderImpl implements BlockBenchModelReader {
 
-    private static final Gson GSON = new Gson();
+    private static final Gson GSON = new GsonBuilder()
+            .registerTypeHierarchyAdapter(OutlinerImpl.class, new OutlinerGsonAdapter())
+            .create();
 
     @Override
     public @NotNull BlockBenchModel read(@NotNull InputStream input) {

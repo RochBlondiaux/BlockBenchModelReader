@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.jetbrains.annotations.Nullable;
 
+import me.rochblondiaux.blockbench.animation.BlockbenchAnimation;
 import me.rochblondiaux.blockbench.element.BlockBenchElement;
 import me.rochblondiaux.blockbench.element.Resolution;
 import me.rochblondiaux.blockbench.model.metadata.Metadata;
@@ -48,4 +49,6 @@ public interface BlockBenchModel {
     Map<String, ? extends ItemTransform> display();
 
     List<? extends Outliner> outliner();
+
+    List<? extends BlockbenchAnimation> animations();
 }

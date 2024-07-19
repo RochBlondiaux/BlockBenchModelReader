@@ -17,7 +17,7 @@ public interface Outliner {
 
     boolean visible();
 
-    float[] origin();
+    Float[] origin();
 
     int color();
 

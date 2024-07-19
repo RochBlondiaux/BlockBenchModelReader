@@ -1,5 +1,6 @@
 package me.rochblondiaux.blockbench.outliner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,7 +15,15 @@ public record OutlinerImpl(
         boolean export,
         @SerializedName("mirror_uv") boolean mirrorUV,
         @Nullable String nbt,
-        float[] origin,
+        Float[] origin,
         boolean visible,
         List<OutlinerImpl> children) implements Outliner {
+
+    public boolean redirection() {
+        return this.name == null;
+    }
+
+    public static OutlinerImpl redirect(UUID uniqueId) {
+        return new OutlinerImpl(uniqueId, null, 0, false, false, null, new Float[]{0f, 0f, 0f}, true, new ArrayList<>());
+    }
 }

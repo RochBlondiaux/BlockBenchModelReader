@@ -1,6 +1,6 @@
 package me.rochblondiaux.blockbench.animation;
 
-import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import me.rochblondiaux.blockbench.animation.animators.BlockbenchAnimator;
@@ -27,5 +27,5 @@ public interface BlockbenchAnimation {
 
     String loopDelay();
 
-    List<? extends BlockbenchAnimator> animators();
+    Map<UUID, ? extends BlockbenchAnimator> animators();
 }

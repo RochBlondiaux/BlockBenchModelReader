@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import me.rochblondiaux.blockbench.animation.BlockbenchAnimationImpl;
 import me.rochblondiaux.blockbench.element.BlockBenchElementImpl;
 import me.rochblondiaux.blockbench.element.Resolution;
 import me.rochblondiaux.blockbench.model.metadata.MetadataImpl;
@@ -30,6 +31,7 @@ public record BlockBenchModelImpl(
         List<BlockBenchElementImpl> elements,
         List<BlockBenchTextureImpl> textures,
         Map<String, ItemTransformImpl> display,
-        List<OutlinerImpl> outliner
+        List<OutlinerImpl> outliner,
+        List<BlockbenchAnimationImpl> animations
 ) implements BlockBenchModel {
 }

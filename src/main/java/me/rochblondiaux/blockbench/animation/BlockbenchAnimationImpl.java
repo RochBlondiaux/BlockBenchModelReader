@@ -1,6 +1,6 @@
 package me.rochblondiaux.blockbench.animation;
 
-import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import com.google.gson.annotations.SerializedName;
@@ -18,5 +18,5 @@ public record BlockbenchAnimationImpl(
         @SerializedName("blend_weight") String blendWeight,
         @SerializedName("start_delay") String startDelay,
         @SerializedName("loop_delay") String loopDelay,
-        List<BlockbenchAnimatorImpl> animators) implements BlockbenchAnimation {
+        Map<UUID, BlockbenchAnimatorImpl> animators) implements BlockbenchAnimation {
 }
