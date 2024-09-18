@@ -9,6 +9,7 @@
 
     <name>BlockBench-Model-Reader</name>
     <description>A simple library to read BlockBench models.</description>
+    <url>https://github.com/RochBlondiaux/BlockBenchModelReader</url>
 
     <!-- licenses -->
     <licenses>
@@ -82,6 +83,16 @@
 
     <!-- build -->
     <build>
+        <!-- plugin management -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>3.2.6</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <!-- plugins -->
         <plugins>
             <!-- compiler -->
@@ -112,6 +123,38 @@
                 <configuration>
                     <publishingServerId>central</publishingServerId>
                 </configuration>
+            </plugin>
+            <!-- maven source plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- gpg -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>${gpg.keyname}</keyname>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
