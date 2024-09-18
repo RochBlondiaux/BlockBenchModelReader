@@ -8,6 +8,40 @@
     <packaging>jar</packaging>
 
     <name>BlockBench-Model-Reader</name>
+    <description>A simple library to read BlockBench models.</description>
+
+    <!-- licenses -->
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <!-- developers -->
+    <developers>
+        <developer>
+            <id>kiwix</id>
+            <name>Roch Blondiaux</name>
+            <email>contact@roch-blondiaux.com</email>
+            <organizationUrl>https://vulkantechnologies.com</organizationUrl>
+            <url>https://roch-blondiaux.com</url>
+            <organization>Vulkan Technologies</organization>
+        </developer>
+    </developers>
+
+    <!-- scm -->
+    <scm>
+        <connection>scm:git:git://github.com/RochBlondiaux/BlockBenchModelReader.git</connection>
+        <developerConnection>scm:git:ssh://github.com:RochBlondiaux/BlockBenchModelReader.git</developerConnection>
+        <url>https://github.com/RochBlondiaux/BlockBenchModelReader/tree/main</url>
+    </scm>
+
+    <!-- issue management -->
+    <issueManagement>
+        <url>https://github.com/RochBlondiaux/BlockBenchModelReader/issues</url>
+        <system>github</system>
+    </issueManagement>
 
     <!-- properties -->
     <properties>
@@ -48,7 +82,9 @@
 
     <!-- build -->
     <build>
+        <!-- plugins -->
         <plugins>
+            <!-- compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -56,6 +92,25 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <!-- javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.10.0</version>
+                <configuration>
+                    <show>public</show>
+                </configuration>
+            </plugin>
+            <!-- maven central publishing -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
                 </configuration>
             </plugin>
         </plugins>
