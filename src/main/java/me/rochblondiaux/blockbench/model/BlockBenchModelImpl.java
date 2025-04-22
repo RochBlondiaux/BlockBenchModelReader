@@ -13,7 +13,7 @@ import me.rochblondiaux.blockbench.element.Resolution;
 import me.rochblondiaux.blockbench.model.metadata.MetadataImpl;
 import me.rochblondiaux.blockbench.outliner.OutlinerImpl;
 import me.rochblondiaux.blockbench.texture.BlockBenchTextureImpl;
-import team.unnamed.creative.model.ItemTransformImpl;
+import team.unnamed.creative.model.ItemTransform;
 
 public record BlockBenchModelImpl(
         String name,
@@ -30,7 +30,7 @@ public record BlockBenchModelImpl(
         Resolution resolution,
         List<BlockBenchElementImpl> elements,
         List<BlockBenchTextureImpl> textures,
-        Map<String, ItemTransformImpl> display,
+        Map<String, ItemTransform> display,
         List<OutlinerImpl> outliner,
         List<BlockbenchAnimationImpl> animations
 ) implements BlockBenchModel {

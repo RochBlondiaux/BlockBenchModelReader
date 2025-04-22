@@ -26,4 +26,5 @@ public interface Outliner {
 
     List<? extends Outliner> children();
 
+    boolean redirection();
 }

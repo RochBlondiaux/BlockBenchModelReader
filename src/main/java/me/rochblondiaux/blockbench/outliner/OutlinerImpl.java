@@ -20,6 +20,7 @@ public record OutlinerImpl(
         boolean visible,
         List<OutlinerImpl> children) implements Outliner {
 
+    @Override
     public boolean redirection() {
         return this.name == null;
     }

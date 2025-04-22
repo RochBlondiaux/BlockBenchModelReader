@@ -3,7 +3,6 @@ package me.rochblondiaux.blockbench.adapters;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -25,10 +24,17 @@ public class OutlinerGsonAdapter implements JsonDeserializer<OutlinerImpl> {
         boolean mirrorUV = this.getIfPresent(jsonElement, "mirrorUV");
         String nbt = jsonElement.getAsJsonObject().has("nbt") ? jsonElement.getAsJsonObject().get("nbt").getAsString() : null;
         Float[] origin = jsonElement.getAsJsonObject().has("origin") ? jsonElement.getAsJsonObject().get("origin").getAsJsonArray().asList().stream().map(JsonElement::getAsFloat).toArray(Float[]::new) : new Float[]{0.0f, 0.0f, 0.0f};
+        Float[] rotation = jsonElement.getAsJsonObject().has("rotation") ? jsonElement.getAsJsonObject().get("rotation").getAsJsonArray().asList().stream().map(JsonElement::getAsFloat).toArray(Float[]::new) : new Float[]{0.0f, 0.0f, 0.0f};
         boolean visible = this.getIfPresent(jsonElement, "visible");
-        List<OutlinerImpl> children = jsonElement.getAsJsonObject().get("children").getAsJsonArray().asList().stream().map(element -> deserialize(element, type, jsonDeserializationContext)).collect(Collectors.toList());
+        List<OutlinerImpl> children = jsonElement.getAsJsonObject()
+                .get("children")
+                .getAsJsonArray()
+                .asList()
+                .stream()
+                .map(element -> deserialize(element, type, jsonDeserializationContext))
+                .toList();
 
-        return new OutlinerImpl(uuid, name, color, export, mirrorUV, nbt, origin, visible, children);
+        return new OutlinerImpl(uuid, name, color, export, mirrorUV, nbt, origin, rotation, visible, children);
     }
 
     private boolean getIfPresent(JsonElement jsonElement, String key) {
