@@ -21,6 +21,7 @@
 
     <!-- developers -->
     <developers>
+        <!-- Roch Blondiaux -->
         <developer>
             <id>kiwix</id>
             <name>Roch Blondiaux</name>
@@ -30,6 +31,15 @@
             <organization>Vulkan Technologies</organization>
         </developer>
     </developers>
+
+    <!-- contributors -->
+    <contributors>
+        <!-- mrlarkyy -->
+        <contributor>
+            <name>MrLarkyy</name>
+            <url>https://github.com/MrLarkyy</url>
+        </contributor>
+    </contributors>
 
     <!-- scm -->
     <scm>
@@ -74,9 +84,9 @@
         </dependency>
         <!-- creative -->
         <dependency>
-            <groupId>io.rivrs</groupId>
+            <groupId>team.unnamed</groupId>
             <artifactId>creative-api</artifactId>
-            <version>1.7.0</version>
+            <version>1.7.3</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
