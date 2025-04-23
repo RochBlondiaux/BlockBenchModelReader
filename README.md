@@ -27,7 +27,7 @@ Add this dependency to your `pom.xml` file:
 <dependency>
     <groupId>me.rochblondiaux</groupId>
     <artifactId>blockbenchmodelreader</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
 </dependency>
 ```
 
@@ -36,7 +36,7 @@ Add this dependency to your `pom.xml` file:
 Add this dependency to your `build.gradle` file:
 
 ```groovy
-implementation 'me.rochblondiaux:blockbenchmodelreader:1.2'
+implementation 'me.rochblondiaux:blockbenchmodelreader:1.3'
 ```
 
 ## Usage
