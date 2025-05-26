@@ -3,6 +3,8 @@ package me.rochblondiaux.blockbench.animation;
 import java.util.Map;
 import java.util.UUID;
 
+import org.jetbrains.annotations.Nullable;
+
 import me.rochblondiaux.blockbench.animation.animators.BlockbenchAnimator;
 
 public interface BlockbenchAnimation {
@@ -28,4 +30,8 @@ public interface BlockbenchAnimation {
     String loopDelay();
 
     Map<UUID, ? extends BlockbenchAnimator> animators();
+
+    @Nullable BlockbenchAnimator effectAnimator();
+
+    @Nullable BlockbenchAnimator animator(UUID uniqueId);
 }

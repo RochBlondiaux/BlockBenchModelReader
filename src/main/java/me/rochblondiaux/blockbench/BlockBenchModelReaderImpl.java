@@ -11,7 +11,10 @@ import org.jetbrains.annotations.NotNull;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import me.rochblondiaux.blockbench.adapters.BlockbenchAnimationAdapter;
 import me.rochblondiaux.blockbench.adapters.OutlinerGsonAdapter;
+import me.rochblondiaux.blockbench.animation.BlockbenchAnimationImpl;
+import me.rochblondiaux.blockbench.animation.animators.BlockbenchAnimatorImpl;
 import me.rochblondiaux.blockbench.model.BlockBenchModel;
 import me.rochblondiaux.blockbench.model.BlockBenchModelImpl;
 import me.rochblondiaux.blockbench.outliner.OutlinerImpl;
@@ -20,6 +23,7 @@ public class BlockBenchModelReaderImpl implements BlockBenchModelReader {
 
     private static final Gson GSON = new GsonBuilder()
             .registerTypeHierarchyAdapter(OutlinerImpl.class, new OutlinerGsonAdapter())
+            .registerTypeHierarchyAdapter(BlockbenchAnimationImpl.class, new BlockbenchAnimationAdapter())
             .create();
 
     @Override

@@ -3,8 +3,11 @@ package me.rochblondiaux.blockbench.animation;
 import java.util.Map;
 import java.util.UUID;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
+import me.rochblondiaux.blockbench.animation.animators.BlockbenchAnimator;
 import me.rochblondiaux.blockbench.animation.animators.BlockbenchAnimatorImpl;
 
 public record BlockbenchAnimationImpl(
@@ -18,5 +21,11 @@ public record BlockbenchAnimationImpl(
         @SerializedName("blend_weight") String blendWeight,
         @SerializedName("start_delay") String startDelay,
         @SerializedName("loop_delay") String loopDelay,
-        Map<UUID, BlockbenchAnimatorImpl> animators) implements BlockbenchAnimation {
+        Map<UUID, BlockbenchAnimatorImpl> animators,
+        @Nullable BlockbenchAnimatorImpl effectAnimator) implements BlockbenchAnimation {
+
+    @Override
+    public @Nullable BlockbenchAnimator animator(UUID uniqueId) {
+        return this.animators.get(uniqueId);
+    }
 }
