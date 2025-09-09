@@ -1,10 +1,8 @@
 package me.rochblondiaux.blockbench.element;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Map;
 import java.util.UUID;
-
-import com.google.gson.annotations.SerializedName;
-
 import me.rochblondiaux.blockbench.element.face.BlockBenchElementFace;
 import me.rochblondiaux.blockbench.element.uv.BlockBenchUv;
 import team.unnamed.creative.base.CubeFace;
@@ -20,6 +18,7 @@ public record BlockBenchElementImpl(
         @SerializedName("allow_mirror_modeling") boolean allowMirrorModeling,
         @SerializedName("autouv") int autoUv,
         int color,
+        float inflate,
         float[] from,
         float[] to,
         float[] origin,

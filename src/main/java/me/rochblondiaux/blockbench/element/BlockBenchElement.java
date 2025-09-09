@@ -29,6 +29,8 @@ public interface BlockBenchElement {
 
     int color();
 
+    float inflate();
+
     float[] from();
 
     float[] to();
