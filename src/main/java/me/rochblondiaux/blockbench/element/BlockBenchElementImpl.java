@@ -14,6 +14,7 @@ public record BlockBenchElementImpl(
         boolean boxUv,
         boolean rescale,
         boolean locked,
+        boolean visibility,
         @SerializedName("render_order") String renderOrder,
         @SerializedName("allow_mirror_modeling") boolean allowMirrorModeling,
         @SerializedName("autouv") int autoUv,

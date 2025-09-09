@@ -21,6 +21,8 @@ public interface BlockBenchElement {
 
     boolean locked();
 
+    boolean visibility();
+
     String renderOrder();
 
     boolean allowMirrorModeling();
