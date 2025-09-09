@@ -15,8 +15,8 @@ public record OutlinerImpl(
         boolean export,
         @SerializedName("mirror_uv") boolean mirrorUV,
         @Nullable String nbt,
-        Float[] origin,
-        Float[] rotation,
+        float[] origin,
+        float[] rotation,
         boolean visible,
         List<OutlinerImpl> children) implements Outliner {
 
@@ -26,6 +26,6 @@ public record OutlinerImpl(
     }
 
     public static OutlinerImpl redirect(UUID uniqueId) {
-        return new OutlinerImpl(uniqueId, null, 0, false, false, null, new Float[]{0f, 0f, 0f}, new Float[]{0f, 0f, 0f}, true, new ArrayList<>());
+        return new OutlinerImpl(uniqueId, null, 0, false, false, null, new float[]{0f, 0f, 0f}, new float[]{0f, 0f, 0f}, true, new ArrayList<>());
     }
 }

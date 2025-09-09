@@ -1,11 +1,12 @@
 package me.rochblondiaux.blockbench.adapters;
 
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.UUID;
-
-import com.google.gson.*;
-
 import me.rochblondiaux.blockbench.outliner.OutlinerImpl;
 
 public class OutlinerGsonAdapter implements JsonDeserializer<OutlinerImpl> {
@@ -31,11 +32,19 @@ public class OutlinerGsonAdapter implements JsonDeserializer<OutlinerImpl> {
                 .map(element -> deserialize(element, type, jsonDeserializationContext))
                 .toList();
 
-        return new OutlinerImpl(uuid, name, color, export, mirrorUV, nbt, origin, rotation, visible, children);
+        return new OutlinerImpl(uuid, name, color, export, mirrorUV, nbt, toPrimitiveFloatArray(origin), toPrimitiveFloatArray(rotation), visible, children);
     }
 
     private boolean getIfPresent(JsonElement jsonElement, String key) {
         return jsonElement.getAsJsonObject().has(key) && jsonElement.getAsJsonObject().get(key).getAsBoolean();
+    }
+
+    private float[] toPrimitiveFloatArray(Float[] array) {
+        float[] result = new float[array.length];
+        for (int i = 0; i < array.length; i++) {
+            result[i] = array[i];
+        }
+        return result;
     }
 
 }
