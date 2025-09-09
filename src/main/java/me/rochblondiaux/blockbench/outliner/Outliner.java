@@ -19,6 +19,8 @@ public interface Outliner {
 
     float[] origin();
 
+    float[] rotation();
+
     int color();
 
     @Nullable
